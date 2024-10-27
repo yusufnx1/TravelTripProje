@@ -1,0 +1,29 @@
+﻿@model List<TravelTripProje.Models.Entities.Blog>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Blog Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>BAŞLIK</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>DETAYLAR</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BlogID</td>
+            <td>@item.Baslik</td>
+            <td><a href="/Admin/BlogSil/@item.BlogID" class="btn btn-danger">SİL</a></td>
+            <td><a href="/Admin/BlogGuncelle/@item.BlogID" class="btn btn-warning">GÜNCELLE</a></td>
+            <td><a href="/Blog/Index/@item.BlogID" class="btn btn-white">DETAYLAR</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/YeniBlog/" class="btn btn-primary">Yeni Blog Yaz</a>
